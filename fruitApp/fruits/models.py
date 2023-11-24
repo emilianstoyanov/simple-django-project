@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
+from fruitApp.validators import only_alphabet
 
 
 class Category(models.Model):
