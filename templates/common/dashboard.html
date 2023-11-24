@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
@@ -19,7 +21,7 @@
             <div class="nav-items">
                 <a href="#">Create Category</a>
                 <a href="#">Create Fruit</a>
-                <a href="#">Dashboard</a>
+                <a href="{% url 'dashboard' %}">Dashboard</a>
             </div>
         </nav>
     </header>
