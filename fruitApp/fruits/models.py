@@ -14,6 +14,7 @@ class Fruit(models.Model):
         max_length=30,
         validators=[
             MinLengthValidator(2),
+            only_alphabet,
         ]
     )
     image_url = models.URLField()
