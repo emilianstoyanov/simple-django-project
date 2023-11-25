@@ -12,6 +12,4 @@ urlpatterns = [
         path('edit/', views.edit_fruit, name='edit-fruit'),
         path('delete/', views.delete_fruit, name='delete-fruit'),
     ])),
-
-
 ]

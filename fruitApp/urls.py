@@ -8,6 +8,6 @@ urlpatterns = [
     path('', include('fruitApp.fruits.urls')),
     path('admin/', admin.site.urls),
 
-    path('category/create/', views.create_category, name='create-category'),
+    path('categories/create/', views.create_category, name='create-category'),
 
 ]
