@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from fruitApp.fruits.forms import CategoryModelForm
 from fruitApp.fruits.models import Fruit
 
 
@@ -35,4 +36,8 @@ def delete_fruit(request, fruit_pk):
 
 
 def create_category(request):
-    return render(request, 'categories/create-category.html')
+    form = CategoryModelForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'categories/create-category.html', context)
