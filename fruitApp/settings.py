@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-from decouple import config
+
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = config('MY_SECRET_KEY')
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'fruitApp.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": config('DATABASES_NAME'),
-        "USER": config('DATABASES_USER'),
-        "PASSWORD": config('DATABASES_PASSWORD'),
+        "NAME": 'DATABASES_NAME',
+        "USER": 'DATABASES_USER',
+        "PASSWORD": 'DATABASES_PASSWORD',
         "HOST": "localhost",
         "PORT": "5432",
     }
