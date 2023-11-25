@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from fruitApp.fruits.forms import CategoryModelForm
 from fruitApp.fruits.models import Fruit
@@ -36,8 +36,27 @@ def delete_fruit(request, fruit_pk):
 
 
 def create_category(request):
-    form = CategoryModelForm()
+    if request.method == 'POST':
+        form = CategoryModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('create-category')
+    else:
+        form = CategoryModelForm()
+
     context = {
         'form': form
     }
     return render(request, 'categories/create-category.html', context)
+
+
+# class CategoryFormView(FormView):
+#     form_class = CategoryModelForm
+#     template_name = 'categories/create-category.html'
+#     success_url = reverse_lazy('create-category')
+#
+#     def form_valid(self, form):
+#         form.save()
+#
+#         return super().form_valid(form)
