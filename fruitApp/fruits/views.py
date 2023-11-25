@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from fruitApp.fruits.models import Fruit
+
 
 def index(request):
     return render(request, 'common/index.html')
@@ -14,7 +16,9 @@ def create_fruit(request):
 
 
 def detail_fruit(request, fruit_pk):
-    return render(request, 'fruits/details-fruit.html')
+    fruit = Fruit.object.get(pk=fruit_pk)
+    context = {'fruit': fruit}
+    return render(request, 'fruits/details-fruit.html', context)
 
 
 def edit_fruit(request, fruit_pk):
